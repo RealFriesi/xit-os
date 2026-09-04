@@ -9,4 +9,4 @@ dnf5 config-manager setopt copr:copr.fedorainfracloud.org:avengemedia:dms-git.en
 
 dnf5 install -y \
 	--enablerepo=copr:copr.fedorainfracloud.org:avengemedia:dms-git \
-    dms-git
+    dms
