@@ -17,9 +17,13 @@ dnf5 install -y \
     --enablerepo=copr:copr.fedorainfracloud.org:lionheartp:Hyprland \
     --enablerepo=copr:copr.fedorainfracloud.org:avengemedia:danklinux \
 	--enablerepo=copr:copr.fedorainfracloud.org:avengemedia:dms-git \
+    --exclude=wofi \
+	--exclude=nwg-panel \
     hyprland \
     hyprland-guiutils \
     dms \
     dms-greeter
 
 
+systemctl enable greetd.service
+systemctl set-default graphical.target

@@ -19,6 +19,7 @@ dnf5 install -y \
 	NetworkManager \
 	pipewire \
 	pipewire-pulseaudio \
+	plymouth \
 	polkit \
 	power-profiles-daemon \
 	udisks2 \

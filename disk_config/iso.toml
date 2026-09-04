@@ -2,6 +2,21 @@
 contents = """
 %post
 bootc switch --mutate-in-place --transport registry ghcr.io/realfriesi/xit-os:latest
+
+flatpak install --system --noninteractive flathub \
+  io.github.kolunmi.Bazaar \
+  com.danklinux.dankcalendar \
+  app.zen_browser.zen \
+  org.gnome.baobab \
+  org.gnome.Calculator \
+  org.gnome.gitlab.somas.Apostrophe \
+  org.gnome.Loupe \
+  org.gnome.Papers \
+  com.usebottles.bottles \
+  app.drey.KeyRack \
+  org.gnome.TextEditor \
+  com.github.tchx84.Flatseal \
+  it.mijorus.gearlever
 %end
 """
 
