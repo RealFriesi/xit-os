@@ -12,9 +12,9 @@ on:
       platform:
         required: true
         type: choice
+        default: amd64
         options:
           - amd64
-          - arm64
   pull_request:
     branches:
       - main
@@ -40,7 +40,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        disk-type: ["qcow2", "anaconda-iso"]
+        disk-type: ["anaconda-iso"]
     permissions:
       contents: read
       packages: read
