@@ -23,6 +23,3 @@ dnf5 install -y \
     dms-greeter
 
 
-dms-greeter install
-
-
