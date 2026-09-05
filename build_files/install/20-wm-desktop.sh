@@ -31,5 +31,5 @@ dnf5 install -y \
 
 
 systemctl enable greetd.service
-systemctl enable --global --user dms.service
+systemctl --global --user add-wants hyprland-session.target dms.service
 systemctl set-default graphical.target
