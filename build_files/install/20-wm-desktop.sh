@@ -22,8 +22,14 @@ dnf5 install -y \
     hyprland \
     hyprland-guiutils \
     dms \
-    dms-greeter
+    dms-greeter \
+    adw-gtk3-theme \
+	hyprqt6engine \
+    gnome-keyring \
+	gnome-keyring-pam \
+    accountsservice
 
 
 systemctl enable greetd.service
+systemctl enable --global --user dms.service
 systemctl set-default graphical.target
