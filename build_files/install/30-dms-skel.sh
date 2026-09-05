@@ -42,6 +42,7 @@ cat >"${POLICY}" <<'EOF'
 EOF
 
 rm -rf "${BUILD_HOME}"
+userdel --force "${BUILD_USER}" 2>/dev/null || true
 useradd --system --no-create-home --home-dir "${BUILD_HOME}" --shell /sbin/nologin "${BUILD_USER}"
 install -d -o "${BUILD_USER}" -g "${BUILD_USER}" -m 0700 "${BUILD_HOME}" "${BUILD_HOME}/run"
 
