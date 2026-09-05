@@ -39,7 +39,7 @@ dnf5 install -y \
 	qt6ct \
 	qt6-qtmultimedia \
 	qt6-qtsvg \
-	qt6-imageformats \
+	qt6-qtimageformats \
 	kf6-kimageformats \
 	dbus-tools \
 	gnome-keyring \
