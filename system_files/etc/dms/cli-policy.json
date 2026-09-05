@@ -1,0 +1,11 @@
+{
+  "policy_version": 1,
+  "immutable_system": true,
+  "blocked_commands": [
+    "greeter install",
+    "greeter enable",
+    "greeter uninstall",
+    "setup"
+  ],
+  "message": "Disabled on xit-OS: the DankMaterialShell configuration is built into the image and seeded from /etc/skel. Customise keybinds in ~/.config/hypr/dms/binds-user.lua and the rest through the DMS settings UI; system-level changes belong in the image."
+}
