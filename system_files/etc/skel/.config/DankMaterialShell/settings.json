@@ -1,0 +1,10 @@
+{
+  "currentThemeName": "blue",
+  "currentThemeCategory": "generic",
+  "matugenScheme": "scheme-tonal-spot",
+  "runUserMatugenTemplates": true,
+  "fontFamily": "Inter Variable",
+  "monoFontFamily": "Fira Code",
+  "iconThemeDark": "System Default",
+  "iconThemeLight": "System Default"
+}

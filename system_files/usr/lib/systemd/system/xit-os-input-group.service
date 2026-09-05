@@ -1,0 +1,14 @@
+[Unit]
+Description=Add local users to the input group for the DMS Caps Lock OSD
+Documentation=https://danklinux.com/docs
+ConditionPathExists=/usr/sbin/usermod
+After=systemd-sysusers.service
+Wants=systemd-sysusers.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/libexec/xit-os/add-users-to-input-group
+
+[Install]
+WantedBy=multi-user.target

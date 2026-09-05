@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync the DankMaterialShell theme into the dms-greeter profile cache
+Documentation=https://danklinux.com/docs/dankgreeter
+ConditionPathExists=/usr/bin/dms-greeter
+PartOf=graphical-session.target
+After=dms.service
+
+[Service]
+Type=oneshot
+# Requires membership in the `greeter` group; until an administrator has run
+# the initial full `dms-greeter sync`, this is expected to fail harmlessly, so
+# the failure is ignored.
+ExecStart=-/usr/bin/dms-greeter sync --profile

@@ -1,0 +1,20 @@
+#!/bin/bash
+# Start Hyprland with an explicit Lua config path.
+#
+# Hyprland only uses hyprland.lua when it is passed with -c; otherwise it
+# autogenerates a hyprland.conf and silently ignores the whole DMS Lua
+# configuration. See DankMaterialShell docs/Hyprland_Lua_Migration.md.
+
+set -euo pipefail
+
+config_home="${XDG_CONFIG_HOME:-${HOME}/.config}"
+config="${config_home}/hypr/hyprland.lua"
+
+# Accounts that predate this image (or were created without /etc/skel) have no
+# Hyprland configuration; seed them from the image defaults once.
+if [[ ! -e "${config}" && -e /etc/skel/.config/hypr/hyprland.lua ]]; then
+	mkdir -p "${config_home}"
+	cp -a /etc/skel/.config/hypr "${config_home}/hypr"
+fi
+
+exec Hyprland -c "${config}" "$@"
