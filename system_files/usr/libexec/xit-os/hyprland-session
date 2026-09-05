@@ -14,7 +14,7 @@ config="${config_home}/hypr/hyprland.lua"
 # Hyprland configuration; seed them from the image defaults once.
 if [[ ! -e "${config}" && -e /etc/skel/.config/hypr/hyprland.lua ]]; then
 	mkdir -p "${config_home}"
-	cp -a /etc/skel/.config/hypr "${config_home}/hypr"
+	cp -r /etc/skel/.config/hypr "${config_home}/hypr"
 fi
 
 exec Hyprland -c "${config}" "$@"
