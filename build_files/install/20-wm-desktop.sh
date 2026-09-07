@@ -18,6 +18,5 @@ dnf5 install -y \
     gnome-keyring \
 	gnome-keyring-pam
 
-
 systemctl enable greetd.service
 systemctl set-default graphical.target

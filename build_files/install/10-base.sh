@@ -16,7 +16,9 @@ dnf5 install -y \
 	glibc-all-langpacks \
 	langpacks-de \
 	langpacks-en \
+	openvpn \
 	NetworkManager \
+	NetworkManager-openvpn \
 	pipewire \
 	pipewire-pulseaudio \
 	plymouth \
