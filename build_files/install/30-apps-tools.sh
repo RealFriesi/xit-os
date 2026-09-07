@@ -2,7 +2,6 @@
 
 set -euo pipefail
 
-## Install Anydesk
 tee /etc/yum.repos.d/AnyDesk-RPM.repo > /dev/null << "EOF"
 [anydesk]
 name=AnyDesk - stable
