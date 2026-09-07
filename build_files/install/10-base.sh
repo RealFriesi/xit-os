@@ -30,6 +30,8 @@ dnf5 install -y \
 	wireplumber \
 	xdg-user-dirs
 
+flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 ## Font
 font_dir=/usr/share/fonts/FiraCode
 font_archive=/tmp/FiraCode.zip
