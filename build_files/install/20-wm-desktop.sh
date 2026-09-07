@@ -16,8 +16,7 @@ dnf5 install -y \
     adw-gtk3-theme \
 	hyprqt6engine \
     gnome-keyring \
-	gnome-keyring-pam \
-    accountsservice
+	gnome-keyring-pam
 
 
 systemctl enable greetd.service
