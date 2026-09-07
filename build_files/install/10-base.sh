@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+FEDORA_VERSION="$(rpm -E '%{fedora}')"
+
 dnf5 config-manager addrepo --from-repofile="https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-${FEDORA_VERSION}/ublue-os-packages-fedora-${FEDORA_VERSION}.repo"
 dnf5 config-manager setopt copr:copr.fedorainfracloud.org:ublue-os:packages.enabled=0
 
