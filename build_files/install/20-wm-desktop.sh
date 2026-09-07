@@ -14,7 +14,7 @@ dnf5 install -y \
     noctalia-greeter \
     umbriel-nightly \
     adw-gtk3-theme \
-	hyprqt6engine \
+	qt6ct \
     gnome-keyring \
 	gnome-keyring-pam
 
