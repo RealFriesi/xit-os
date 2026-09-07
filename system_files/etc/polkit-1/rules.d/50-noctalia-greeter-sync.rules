@@ -1,0 +1,13 @@
+// Keep this policy as narrow as possible: Noctalia greeter sync uses pkexec for
+// this greeter-specific action.
+polkit.addRule(function(action, subject) {
+    if (!subject.local || !subject.isInGroup("wheel")) {
+        return polkit.Result.NOT_HANDLED;
+    }
+
+    if (action.id == "org.noctalia.greeter.apply-appearance") {
+        return polkit.Result.YES;
+    }
+
+    return polkit.Result.NOT_HANDLED;
+});

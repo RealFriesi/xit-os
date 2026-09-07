@@ -12,4 +12,15 @@ repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
 
-dnf install -y anydesk
+dnf install -y \
+    anydesk \
+    nautilus \
+    gnome-disk-utility \
+    fish \
+    kitty
+
+curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
+    --yes \
+    --bin-dir /usr/local/bin
+
+systemctl enable ublue-os-media-automount.service

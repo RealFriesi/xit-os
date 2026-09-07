@@ -1,0 +1,86 @@
+[bar.default]
+end = [
+    "media",
+    "tray",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "wallpaper",
+    "control-center",
+    "session"
+]
+start = [ "launcher", "workspaces", "taskbar" ]
+
+[control_center.calendar]
+show_events_card = false
+show_week_numbers = true
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = false
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 7200.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = false
+    timeout = 660.0
+
+[shell]
+clipboard_image_action_command = "satty -f - "
+font_family = "Noto Sans"
+launch_apps_as_systemd_services = true
+polkit_agent = true
+
+    [shell.greeter_sync]
+    auto_sync = true
+    privilege_command = "pkexec"
+
+    [shell.keyboard_layout.custom_labels]
+    "German (no dead keys)" = "de"
+
+    [shell.launcher]
+    app_grid = true
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    launcher_placement = "floating"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+    open_near_click_launcher = false
+    open_near_click_session = true
+    open_near_click_wallpaper = true
+    transparency_mode = "glass"
+
+    [shell.screenshot]
+    pipe_command = "satty -f -"
+    pipe_to_command = true
+
+[theme]
+builtin = "Eldritch"
+community_palette = "Ayu Green"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt", "starship" ]
+
+[wallpaper]
+
+    [wallpaper.default]
+    path = "/usr/share/srvb/wallpapers/srvb.png"
+
+[widget.taskbar]
+pinned = [ "org.gnome.Nautilus", "kitty", "io.github.kolunmi.Bazaar" ]
+
+[widget.workspaces]
+capsule = true
