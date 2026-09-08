@@ -1,0 +1,21 @@
+[keybinds]
+
+"Mod+Return" = "spawn:kitty"
+"Mod" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Q" = "window-close"
+
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+
+"Mod+T" = "window-toggle-floating"
+"Mod+Shift+T" = "window-focus-switch-floating"
+"Mod+P" = "window-toggle-pinned"
+"Mod+M" = "window-toggle-maximize-to-edges"
+
+"Mod+O" = { action = "overview-toggle", repeat = false }
+"Mod+Shift+Space" = "window-move-to-scratchpad"
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Ctrl+Space" = "window-restore-from-scratchpad"
+"Mod+Tab" = "scratchpad-focus-next"

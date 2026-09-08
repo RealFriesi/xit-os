@@ -1,0 +1,17 @@
+[workspaces]
+back_and_forth = false
+empty_above = false
+
+# [[workspace]]
+# index = 2
+# output = "DP-1"
+# layout.mode = "dwindle"
+# layout.gap = 4
+# layout.struts.top = 24
+# layout.scrolling.center_underfull_strip = false
+# layout.dwindle.preserve_split = true
+
+# [[workspace]]
+# name = "CHAT"
+# output = "DP-1"
+# layout.mode = "master"

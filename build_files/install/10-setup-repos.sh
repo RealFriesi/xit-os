@@ -10,18 +10,11 @@ dnf5 config-manager setopt copr:copr.fedorainfracloud.org:ublue-os:packages.enab
 dnf5 config-manager addrepo --from-repofile="https://raw.githubusercontent.com/terrapkg/subatomic-repos/main/terra.repo"
 dnf5 config-manager setopt terra.enabled=0
 
-dnf5 install -y \
-    --enablerepo=copr:copr.fedorainfracloud.org:ublue-os:packages \
-    --enablerepo=terra \
-    ublue-os-media-automount-udev \
-    xwayland-satellite \
-    noctalia \
-    noctalia-greeter \
-    umbriel-nightly \
-    adw-gtk3-theme \
-	qt6ct \
-    gnome-keyring \
-	gnome-keyring-pam
-
-systemctl enable greetd.service
-systemctl set-default graphical.target
+tee /etc/yum.repos.d/AnyDesk-RPM.repo >/dev/null <<"EOF"
+[anydesk]
+name=AnyDesk - stable
+baseurl=http://rpm.anydesk.com/$basearch/
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
+EOF
