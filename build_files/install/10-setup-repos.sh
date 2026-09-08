@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+dnf5 install -y \
+	dnf5-plugins \
+    flatpak
+
 FEDORA_VERSION="$(rpm -E '%{fedora}')"
 
 dnf5 config-manager addrepo --from-repofile="https://copr.fedorainfracloud.org/coprs/ublue-os/packages/repo/fedora-${FEDORA_VERSION}/ublue-os-packages-fedora-${FEDORA_VERSION}.repo"
@@ -18,3 +22,5 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
+
+flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo

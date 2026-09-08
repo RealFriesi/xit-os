@@ -3,9 +3,7 @@
 set -euo pipefail
 
 dnf5 install -y \
-	dnf5-plugins \
 	distrobox \
-	flatpak \
 	fuse \
 	fuse-libs \
 	bluez \
@@ -26,8 +24,6 @@ dnf5 install -y \
 	udisks2 \
 	wireplumber \
 	xdg-user-dirs
-
-flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 ## Font
 font_dir=/usr/share/fonts/FiraCode
