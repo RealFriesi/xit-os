@@ -5,6 +5,7 @@ set -euo pipefail
 dnf install -y \
 	anydesk \
 	nautilus \
+	nautilus-python \
 	gnome-disk-utility \
 	fish \
 	kitty

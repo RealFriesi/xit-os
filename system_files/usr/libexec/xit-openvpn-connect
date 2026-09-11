@@ -1,0 +1,80 @@
+#!/usr/bin/python3
+"""Kopiert eine .ovpn-Konfiguration samt aller Dateien aus ihrem Ordner in einen
+privaten temporären Ordner und startet openvpn darin.
+
+Hintergrund: Configs liegen auf einem Samba-Share, auf das openvpn (als root)
+nicht zugreifen kann. Der temporäre Ordner liegt unter /tmp und wird beim
+Beenden wieder gelöscht.
+"""
+
+import os
+import shutil
+import signal
+import subprocess
+import sys
+import tempfile
+
+
+def die(message):
+    print("Fehler: {}".format(message), file=sys.stderr)
+    input("Zum Schließen Enter drücken... ")
+    sys.exit(1)
+
+
+def copy_config_dir(config_path, workdir):
+    src_dir = os.path.dirname(os.path.abspath(config_path))
+    for name in os.listdir(src_dir):
+        source = os.path.join(src_dir, name)
+        if not os.path.isfile(source):
+            continue
+        target = os.path.join(workdir, name)
+        shutil.copyfile(source, target)
+        os.chmod(target, 0o600)
+
+
+def main():
+    if len(sys.argv) != 2:
+        die("Aufruf: {} <datei.ovpn>".format(os.path.basename(sys.argv[0])))
+
+    config_path = sys.argv[1]
+    if not os.path.isfile(config_path):
+        die("Konfiguration nicht gefunden: {}".format(config_path))
+
+    if shutil.which("openvpn") is None:
+        die("openvpn ist nicht installiert.")
+
+    config_name = os.path.basename(config_path)
+    workdir = tempfile.mkdtemp(prefix="ovpn-", dir="/tmp")
+    os.chmod(workdir, 0o700)
+
+    try:
+        print("Kopiere Konfiguration nach {} ...".format(workdir))
+        try:
+            copy_config_dir(config_path, workdir)
+        except OSError as error:
+            die("Kopieren fehlgeschlagen: {}".format(error))
+
+        print("Starte OpenVPN für {} ...".format(config_name))
+        print("Zum Trennen Strg+C drücken.\n")
+
+        command = ["pkexec", "openvpn", "--cd", workdir, "--config", config_name]
+        try:
+            process = subprocess.Popen(command)
+        except OSError as error:
+            die("Start fehlgeschlagen: {}".format(error))
+
+        try:
+            returncode = process.wait()
+        except KeyboardInterrupt:
+            process.send_signal(signal.SIGINT)
+            returncode = process.wait()
+
+        print("\nOpenVPN beendet (Exit-Code {}).".format(returncode))
+    finally:
+        shutil.rmtree(workdir, ignore_errors=True)
+
+    input("Zum Schließen Enter drücken... ")
+
+
+if __name__ == "__main__":
+    main()
