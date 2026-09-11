@@ -72,7 +72,7 @@ builtin = "Eldritch"
 community_palette = "Ayu Green"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt", "starship" ]
+    builtin_ids = [ "gtk3", "gtk4", "umbriel", "kcolorscheme", "kitty", "qt", "starship" ]
 
 [wallpaper]
 
