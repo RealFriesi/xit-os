@@ -1,52 +1,31 @@
+# Umbriel configuration entry point.
+# Distro defaults from /usr/share/srvb/umbriel/ are included below.
+# Comment out any default file to replace it with your own configuration or overrides.
+
 [include]
 files = [
-    "input.toml",
-    "keybinds.toml",
-    "noctalia.toml",
-    "environment.toml",
-    "layout.toml",
-    "workspaces.toml",
-    "appearance.toml",
-    "rules-window.toml",
-    "rules-layer.toml",
-    "output.toml",
+    "/usr/share/xit-os/umbriel/general.toml",
+    "/usr/share/xit-os/umbriel/workspaces.toml",
+    "/usr/share/xit-os/umbriel/appearance.toml",
+    "/usr/share/xit-os/umbriel/input.toml",
+    "/usr/share/xit-os/umbriel/scratchpads.toml",
+    "/usr/share/xit-os/umbriel/keybinds.toml",
+    "/usr/share/xit-os/umbriel/layout.toml",
+    "/usr/share/xit-os/umbriel/window-rules.toml",
+    "/usr/share/xit-os/umbriel/layer-rules.toml",
+    "/usr/share/xit-os/umbriel/animation.toml",
+    "/usr/share/xit-os/umbriel/overview.toml",
+    "/usr/share/xit-os/umbriel/security.toml",
+    "noctalia.toml"
 ]
 
 [include.optional]
-files = []
+files = ["noctalia.toml"]
 
-[general]
-autostart = ["noctalia"]
-xwayland = true
-show_cheatsheet = true
-focus_on_activate = false
-honor_restored_maximize = false
-
-
-[events]
-# lid_close = "notify-send 'The laptop lid is closed'"
-# lid_open = "notify-send 'The laptop lid is open'"
-
-[overview]
-zoom = 0.5
-background_blur = true
-workspace_wallpaper = true
-
-[hot_corners.top_left]
-enabled = true
-delay_ms = 500
-action = "overview-open"
-[hot_corners.top_right]
-enabled = false
-delay_ms = 500
-action = "overview-close"
-
-[hot_corners.bottom_left]
-enabled = false
-delay_ms = 500
-action = "overview-toggle"
-
-[hot_corners.bottom_right]
-enabled = false
-delay_ms = 500
-action = "spawn:notify-send 'Bottom right'"
+# Output sections are machine-specific. Add them here when needed.
+# [output.DP-1]
+# enabled = true
+# mode = "2560x1440@144"
+# position = [0, 0]
+# scale = 1.25
+# workspace_axis = "horizontal"

@@ -32,25 +32,22 @@ hide_timeout_ms = 0
 [input.focus]
 follows_mouse = false
 
-# [[input.device]]
-# name = "Acme Split Keyboard"
-# layout = "us"
-# variant = "colemak_dh"
-# repeat_rate = 40
-# repeat_delay = 250
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500
+action = "overview-open"
 
-# [[input.device]]
-# name = "Acme Precision Touchpad"
-# tap = true
-# natural_scroll = false
-# accel_profile = "flat"
-# sensitivity = 0.0
-# disable_while_typing = false
-# click_method = "clickfinger"
+[hot_corners.top_right]
+enabled = false
+delay_ms = 500
+action = "overview-close"
 
-# [[input.device]]
-# name = "Acme Gaming Mouse"
-# accel_profile = "flat"
-# sensitivity = 0.0
-# scroll_button = "MouseBack"
-# scroll_button_lock = false
+[hot_corners.bottom_left]
+enabled = false
+delay_ms = 500
+action = "overview-toggle"
+
+[hot_corners.bottom_right]
+enabled = false
+delay_ms = 500
+action = "spawn:notify-send 'Bottom right'"
