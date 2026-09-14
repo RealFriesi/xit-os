@@ -16,6 +16,9 @@ dnf5 install -y \
 	openvpn \
 	NetworkManager \
 	NetworkManager-openvpn \
+	NetworkManager-wifi \
+	wpa_supplicant \
+	iwlwifi-mvm-firmware \
 	pipewire \
 	pipewire-pulseaudio \
 	plymouth \
