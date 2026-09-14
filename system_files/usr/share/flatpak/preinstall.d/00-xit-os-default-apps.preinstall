@@ -1,0 +1,55 @@
+[Flatpak Preinstall io.github.kolunmi.Bazaar]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.danklinux.dankcalendar]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall app.zen_browser.zen]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.baobab]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Calculator]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.gitlab.somas.Apostrophe]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Loupe]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Papers]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.usebottles.bottles]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall app.drey.KeyRack]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.TextEditor]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.github.tchx84.Flatseal]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall it.mijorus.gearlever]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.bitwarden.desktop]
+Branch=stable
+IsRuntime=false
