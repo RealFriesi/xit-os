@@ -3,6 +3,8 @@
 set -euo pipefail
 
 dnf install -y \
+	--enablerepo=terra \
+	--enablerepo=anydesk \
 	anydesk \
 	nautilus \
 	nautilus-python \
@@ -17,7 +19,8 @@ dnf install -y \
 	gvfs-smb \
 	gnome-disk-utility \
 	fish \
-	kitty
+	kitty \
+	ghostty
 
 flatpak --system --noninteractive preinstall
 
