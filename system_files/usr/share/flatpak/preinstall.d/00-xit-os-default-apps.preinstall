@@ -46,6 +46,10 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
+[Flatpak Preinstall app.drey.KeyRack]
+Branch=stable
+IsRuntime=false
+
 [Flatpak Preinstall com.ranfdev.DistroShelf]
 Branch=stable
 IsRuntime=false

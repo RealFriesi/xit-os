@@ -18,8 +18,7 @@ dnf5 install -y \
 	gnome-initial-setup \
 	ublue-os-media-automount-udev \
 	gnome-keyring \
-	gnome-keyring-pam \
-	seahorse
+	gnome-keyring-pam
 
 systemctl enable gdm.service
 systemctl set-default graphical.target
