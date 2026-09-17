@@ -19,11 +19,16 @@ dnf5 install -y \
 	NetworkManager \
 	NetworkManager-openvpn \
 	NetworkManager-wifi \
+	realmd \
+	sssd \
+	oddjob \
+	oddjob-mkhomedir \
+	adcli \
+	samba-common-tools \
 	wpa_supplicant \
 	iwlwifi-mvm-firmware \
 	pipewire \
 	pipewire-pulseaudio \
-	plymouth \
 	polkit \
 	power-profiles-daemon \
 	udisks2 \
