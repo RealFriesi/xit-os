@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync remaining flatpak preinstall.d apps
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak --system --noninteractive preinstall
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

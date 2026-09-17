@@ -32,7 +32,11 @@ tar -xzf "${shader_archive}" \
 	--strip-components=1 \
 	--wildcards '*.glsl'
 
-flatpak --system --noninteractive preinstall
+# only these apps ship in the image; the rest of preinstall.d is synced at boot
+flatpak install --system --noninteractive flathub \
+	io.github.kolunmi.Bazaar \
+	app.drey.KeyRack \
+	org.mozilla.firefox
 
 curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
 	--yes \
@@ -42,3 +46,4 @@ useradd -D --shell /usr/bin/fish
 usermod --shell /usr/bin/fish root
 
 systemctl enable ublue-os-media-automount.service
+systemctl enable xit-os-flatpak-preinstall-sync.service
