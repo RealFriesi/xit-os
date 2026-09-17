@@ -18,7 +18,10 @@ dnf5 install -y \
 	gnome-initial-setup \
 	ublue-os-media-automount-udev \
 	gnome-keyring \
-	gnome-keyring-pam
+	gnome-keyring-pam \
+	xdg-desktop-portal \
+	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-gtk
 
 systemctl enable gdm.service
 systemctl set-default graphical.target

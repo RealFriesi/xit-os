@@ -37,6 +37,8 @@ dnf5 install -y \
 	wireplumber \
 	xdg-user-dirs
 
+plymouth-set-default-theme charge
+
 ## Font
 font_dir=/usr/share/fonts/FiraCode
 font_archive=/tmp/FiraCode.zip
@@ -47,5 +49,3 @@ curl --retry 3 -fsSL \
 unzip -q "${font_archive}" -d "${font_dir}"
 rm -f "${font_archive}"
 fc-cache -f "${font_dir}"
-
-plymouth-set-default-theme -R charge
