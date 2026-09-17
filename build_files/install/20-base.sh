@@ -10,6 +10,8 @@ dnf5 install -y \
 	btrfs-progs \
 	cryptsetup \
 	fwupd \
+	fprintd \
+	fprintd-pam \
 	glibc-all-langpacks \
 	langpacks-de \
 	langpacks-en \
