@@ -4,16 +4,22 @@ set -euo pipefail
 
 dnf5 install -y \
 	--enablerepo=copr:copr.fedorainfracloud.org:ublue-os:packages \
-	--enablerepo=terra \
+	--exclude=baobab \
+	--exclude=epiphany \
+	--exclude=evince \
+	--exclude=firefox \
+	--exclude=gnome-calendar \
+	--exclude=gnome-calculator \
+	--exclude=gnome-software \
+	--exclude=gnome-text-editor \
+	--exclude=loupe \
+	--exclude=papers \
+	@gnome-desktop \
 	ublue-os-media-automount-udev \
-	xwayland-satellite \
-	noctalia \
-	noctalia-greeter \
-	umbriel-nightly \
 	adw-gtk3-theme \
-	qt6ct \
 	gnome-keyring \
-	gnome-keyring-pam
+	gnome-keyring-pam \
+	seahorse
 
-systemctl enable greetd.service
+systemctl enable gdm.service
 systemctl set-default graphical.target
