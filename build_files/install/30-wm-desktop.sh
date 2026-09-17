@@ -26,3 +26,5 @@ dnf5 install -y \
 
 systemctl enable gdm.service
 systemctl set-default graphical.target
+
+dconf update
