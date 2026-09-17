@@ -2,11 +2,7 @@
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall com.danklinux.dankcalendar]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall app.zen_browser.zen]
+[Flatpak Preinstall org.mozilla.firefox]
 Branch=stable
 IsRuntime=false
 
@@ -47,5 +43,13 @@ Branch=stable
 IsRuntime=false
 
 [Flatpak Preinstall com.bitwarden.desktop]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall com.ranfdev.DistroShelf]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall io.github.totoshko88.RustConn]
 Branch=stable
 IsRuntime=false
