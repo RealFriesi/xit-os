@@ -19,6 +19,8 @@ dnf install -y \
 	fish \
 	kitty
 
+flatpak --system --noninteractive preinstall
+
 curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
 	--yes \
 	--bin-dir /usr/local/bin

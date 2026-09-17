@@ -4,8 +4,8 @@ name: Build disk images
 on:
   workflow_dispatch:
     inputs:
-      upload-to-s3:
-        description: "Upload to S3"
+      upload-to-sftp:
+        description: "Upload to SFTP"
         required: false
         default: false
         type: boolean
@@ -98,18 +98,18 @@ jobs:
           compression-level: 0
           overwrite: true
       
-      - name: Upload to S3
-        if: inputs.upload-to-s3 == true && github.event_name != 'pull_request'
+      - name: Upload to SFTP
+        if: inputs.upload-to-sftp == true && github.event_name != 'pull_request'
         shell: bash
         env:
-          RCLONE_CONFIG_S3_TYPE: s3
-          RCLONE_CONFIG_S3_PROVIDER: ${{ secrets.S3_PROVIDER }}
-          RCLONE_CONFIG_S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
-          RCLONE_CONFIG_S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
-          RCLONE_CONFIG_S3_REGION: ${{ secrets.S3_REGION }}
-          RCLONE_CONFIG_S3_ENDPOINT: ${{ secrets.S3_ENDPOINT }}
+          RCLONE_CONFIG_SFTP_TYPE: sftp
+          RCLONE_CONFIG_SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          RCLONE_CONFIG_SFTP_USER: ${{ secrets.SFTP_USERNAME }}
+          RCLONE_CONFIG_SFTP_PASS: ${{ secrets.SFTP_PASSWORD }}
+          RCLONE_CONFIG_SFTP_PORT: ${{ secrets.SFTP_PORT || '22' }}
           SOURCE_DIR: ${{ steps.build.outputs.output-directory }}
         run: |
           sudo apt-get update
           sudo apt-get install -y rclone
-          rclone copy $SOURCE_DIR S3:${{ secrets.S3_BUCKET_NAME }}
+          export RCLONE_CONFIG_SFTP_PASS="$(rclone obscure "$RCLONE_CONFIG_SFTP_PASS")"
+          rclone copy "$SOURCE_DIR" "SFTP:${{ secrets.SFTP_REMOTE_DIR }}"

@@ -14,10 +14,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.gnome.gitlab.somas.Apostrophe]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.gnome.Loupe]
 Branch=stable
 IsRuntime=false

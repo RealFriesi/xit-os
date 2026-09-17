@@ -3,6 +3,8 @@
 set -euo pipefail
 
 dnf5 install -y \
+	plymouth \
+	plymouth-theme-charge \
 	distrobox \
 	fuse \
 	fuse-libs \
@@ -45,3 +47,5 @@ curl --retry 3 -fsSL \
 unzip -q "${font_archive}" -d "${font_dir}"
 rm -f "${font_archive}"
 fc-cache -f "${font_dir}"
+
+plymouth-set-default-theme -R charge
