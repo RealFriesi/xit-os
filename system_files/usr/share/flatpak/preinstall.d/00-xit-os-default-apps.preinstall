@@ -53,3 +53,7 @@ IsRuntime=false
 [Flatpak Preinstall io.github.totoshko88.RustConn]
 Branch=stable
 IsRuntime=false
+
+[Flatpak Preinstall com.mattjakeman.ExtensionManager]
+Branch=stable
+IsRuntime=false
