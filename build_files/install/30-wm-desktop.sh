@@ -14,6 +14,7 @@ dnf5 install -y \
 	--exclude=gnome-text-editor \
 	--exclude=loupe \
 	--exclude=papers \
+	--exclude=ptyxis \
 	@gnome-desktop \
 	gnome-initial-setup \
 	ublue-os-media-automount-udev \
