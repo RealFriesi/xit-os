@@ -111,4 +111,5 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y rclone
+          export RCLONE_CONFIG_SFTP_PASS="$(rclone obscure "$RCLONE_CONFIG_SFTP_PASS")"
           rclone copy "$SOURCE_DIR" "SFTP:${{ secrets.SFTP_REMOTE_DIR }}"
