@@ -14,3 +14,4 @@ for installer in "${installers[@]}"; do
 done
 
 systemctl enable podman.socket
+systemctl enable flatpak-preinstall.service
