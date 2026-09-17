@@ -1,4 +1,4 @@
-"""Nautilus-Kontextmenü: OpenVPN-Konfiguration in einem Kitty-Terminal verbinden."""
+"""Nautilus-Kontextmenü: OpenVPN-Konfiguration in Ghostty verbinden."""
 
 import os
 import subprocess
@@ -58,10 +58,10 @@ class OpenVPNConnectExtension(GObject.GObject, Nautilus.MenuProvider):
     def _on_activate(self, _menu, path):
         subprocess.Popen(
             [
-                "kitty",
+                "ghostty",
                 "--title",
                 "OpenVPN: {}".format(os.path.basename(path)),
-                "--",
+                "-e",
                 HELPER,
                 path,
             ],

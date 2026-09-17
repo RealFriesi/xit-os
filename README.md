@@ -7,7 +7,7 @@ Das System ist für den persönlichen Einsatz gedacht und wird als unveränderli
 ## Funktionen
 
 - GNOME als grafische Arbeitsumgebung
-- Firefox, Nautilus, Kitty, Fish und Starship für die tägliche Arbeit
+- Firefox, Nautilus, Ghostty, Fish und Starship für die tägliche Arbeit
 - AnyDesk für den Fernzugriff
 - Distrobox und Podman für isolierte Arbeits- und Entwicklungsumgebungen
 - OpenVPN mit Nautilus-Kontextmenü für `.ovpn`-Dateien
@@ -19,7 +19,7 @@ Das System ist für den persönlichen Einsatz gedacht und wird als unveränderli
 
 Eine `.ovpn`-Datei kann in Nautilus über das Kontextmenü mit **Verbinden (OpenVPN)** gestartet werden. Die Konfigurationsdatei und die Dateien aus ihrem Ordner werden dafür in ein geschütztes temporäres Verzeichnis kopiert. So funktionieren auch Konfigurationen von Samba- oder GVFS-Mounts.
 
-Die Verbindung läuft in Kitty und kann dort mit `Strg+C` beendet werden.
+Die Verbindung läuft in Ghostty und kann dort mit `Strg+C` beendet werden.
 
 ## Eigenes Bootc-Image erstellen
 
