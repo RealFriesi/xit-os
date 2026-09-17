@@ -38,6 +38,7 @@ dnf5 install -y \
 	xdg-user-dirs
 
 plymouth-set-default-theme -R charge
+systemctl enable podman.socket
 
 ## Font
 font_dir=/usr/share/fonts/FiraCode
