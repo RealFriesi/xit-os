@@ -39,5 +39,6 @@ curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
 	--bin-dir /usr/local/bin
 
 useradd -D --shell /usr/bin/fish
+usermod --shell /usr/bin/fish root
 
 systemctl enable ublue-os-media-automount.service
