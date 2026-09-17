@@ -13,6 +13,9 @@ import signal
 import subprocess
 import sys
 import tempfile
+from urllib.parse import unquote, urlparse
+
+from gi.repository import Gio, GLib
 
 
 def die(message):
@@ -21,7 +24,7 @@ def die(message):
     sys.exit(1)
 
 
-def copy_config_dir(config_path, workdir):
+def copy_local_config_dir(config_path, workdir):
     src_dir = os.path.dirname(os.path.abspath(config_path))
     for name in os.listdir(src_dir):
         source = os.path.join(src_dir, name)
@@ -32,26 +35,56 @@ def copy_config_dir(config_path, workdir):
         os.chmod(target, 0o600)
 
 
+def copy_remote_config_dir(config_uri, workdir):
+    source = Gio.File.new_for_uri(config_uri)
+    source_dir = source.get_parent()
+    enumerator = source_dir.enumerate_children(
+        "standard::name,standard::type",
+        Gio.FileQueryInfoFlags.NONE,
+        None,
+    )
+    try:
+        for info in enumerator:
+            if info.get_file_type() != Gio.FileType.REGULAR:
+                continue
+            target = Gio.File.new_for_path(os.path.join(workdir, info.get_name()))
+            source_dir.get_child(info.get_name()).copy(
+                target,
+                Gio.FileCopyFlags.OVERWRITE,
+                None,
+                None,
+            )
+            os.chmod(target.get_path(), 0o600)
+    finally:
+        enumerator.close(None)
+
+
 def main():
     if len(sys.argv) != 2:
         die("Aufruf: {} <datei.ovpn>".format(os.path.basename(sys.argv[0])))
 
-    config_path = sys.argv[1]
-    if not os.path.isfile(config_path):
+    config_location = sys.argv[1]
+    parsed_location = urlparse(config_location)
+    is_remote = parsed_location.scheme not in ("", "file")
+    config_path = unquote(parsed_location.path) if parsed_location.scheme == "file" else config_location
+    if not is_remote and not os.path.isfile(config_path):
         die("Konfiguration nicht gefunden: {}".format(config_path))
 
     if shutil.which("openvpn") is None:
         die("openvpn ist nicht installiert.")
 
-    config_name = os.path.basename(config_path)
+    config_name = os.path.basename(unquote(parsed_location.path))
     workdir = tempfile.mkdtemp(prefix="ovpn-", dir="/tmp")
     os.chmod(workdir, 0o700)
 
     try:
         print("Kopiere Konfiguration nach {} ...".format(workdir))
         try:
-            copy_config_dir(config_path, workdir)
-        except OSError as error:
+            if is_remote:
+                copy_remote_config_dir(config_location, workdir)
+            else:
+                copy_local_config_dir(config_path, workdir)
+        except (OSError, GLib.Error) as error:
             die("Kopieren fehlgeschlagen: {}".format(error))
 
         print("Starte OpenVPN für {} ...".format(config_name))
