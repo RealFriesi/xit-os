@@ -15,8 +15,8 @@ dnf5 install -y \
 	--exclude=loupe \
 	--exclude=papers \
 	@gnome-desktop \
+	gnome-initial-setup \
 	ublue-os-media-automount-udev \
-	adw-gtk3-theme \
 	gnome-keyring \
 	gnome-keyring-pam \
 	seahorse
