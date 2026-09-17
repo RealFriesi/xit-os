@@ -6,6 +6,15 @@ dnf install -y \
 	anydesk \
 	nautilus \
 	nautilus-python \
+	gvfs \
+	gvfs-afc \
+	gvfs-archive \
+	gvfs-client \
+	gvfs-fuse \
+	gvfs-goa \
+	gvfs-gphoto2 \
+	gvfs-mtp \
+	gvfs-smb \
 	gnome-disk-utility \
 	fish \
 	kitty
