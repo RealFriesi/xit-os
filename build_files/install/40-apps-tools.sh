@@ -7,7 +7,6 @@ dnf install -y \
 	--enablerepo=anydesk \
 	anydesk \
 	nautilus \
-	nautilus-python \
 	gvfs \
 	gvfs-afc \
 	gvfs-archive \
@@ -31,6 +30,12 @@ tar -xzf "${shader_archive}" \
 	-C "${shader_dir}" \
 	--strip-components=1 \
 	--wildcards '*.glsl'
+
+nautilus_extension_dir=/usr/lib64/nautilus/extensions-4
+mkdir -p "${nautilus_extension_dir}"
+curl --retry 3 -fsSL \
+	-o "${nautilus_extension_dir}/libnautilus_ovpn.so" \
+	https://github.com/RealFriesi/nautilus-ovpn/releases/latest/download/libnautilus_ovpn.so
 
 # only these apps ship in the image; the rest of preinstall.d is synced at boot
 flatpak install --system --noninteractive flathub \

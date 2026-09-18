@@ -17,9 +17,9 @@ Das System ist für den persönlichen Einsatz gedacht und wird als unveränderli
 
 ## OpenVPN im Dateimanager
 
-Eine `.ovpn`-Datei kann in Nautilus über das Kontextmenü mit **Verbinden (OpenVPN)** gestartet werden. Die Konfigurationsdatei und die Dateien aus ihrem Ordner werden dafür in ein geschütztes temporäres Verzeichnis kopiert. So funktionieren auch Konfigurationen von Samba- oder GVFS-Mounts.
+Eine `.ovpn`-Datei kann in Nautilus über das Kontextmenü mit **Mit VPN verbinden** aktiviert werden. Die Konfiguration wird dafür in ein temporäres Verzeichnis kopiert und als flüchtige NetworkManager-Verbindung aktiviert. So funktionieren auch Konfigurationen von Samba- oder GVFS-Mounts. Werden Zugangsdaten benötigt, fragt ein Zenity-Dialog danach und kann sie optional im Secret Service speichern.
 
-Die Verbindung läuft in Ghostty und kann dort mit `Strg+C` beendet werden.
+Das Kontextmenü stammt aus der Rust-Nautilus-Extension [nautilus-ovpn](https://github.com/RealFriesi/nautilus-ovpn), deren `.so`-Release beim Image-Build heruntergeladen wird.
 
 ## Eigenes Bootc-Image erstellen
 
