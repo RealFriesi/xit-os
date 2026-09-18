@@ -5,7 +5,7 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/flatpak --system --noninteractive preinstall
+ExecStart=/usr/bin/dbus-run-session -- /usr/bin/flatpak --system --noninteractive preinstall
 Restart=on-failure
 RestartSec=30
 
