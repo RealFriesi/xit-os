@@ -9,6 +9,8 @@ dnf5 install -y \
 	fuse \
 	fuse-libs \
 	bluez \
+	zenity \
+	libsecret \
 	btrfs-progs \
 	cryptsetup \
 	dbus-daemon \
