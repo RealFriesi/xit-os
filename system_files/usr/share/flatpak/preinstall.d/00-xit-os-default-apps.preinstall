@@ -57,3 +57,7 @@ IsRuntime=false
 [Flatpak Preinstall com.mattjakeman.ExtensionManager]
 Branch=stable
 IsRuntime=false
+
+[Flatpak Preinstall org.zulip.Zulip]
+Branch=stable
+IsRuntime=false
