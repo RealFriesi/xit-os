@@ -11,6 +11,7 @@ dnf5 install -y \
 	bluez \
 	btrfs-progs \
 	cryptsetup \
+	dbus-daemon \
 	fwupd \
 	fprintd \
 	fprintd-pam \
