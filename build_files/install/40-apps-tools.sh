@@ -38,10 +38,7 @@ curl --retry 3 -fsSL \
 	https://github.com/RealFriesi/nautilus-ovpn/releases/latest/download/libnautilus_ovpn.so
 
 # only these apps ship in the image; the rest of preinstall.d is synced at boot
-flatpak install --system --noninteractive flathub \
-	io.github.kolunmi.Bazaar \
-	app.drey.KeyRack \
-	org.mozilla.firefox
+flatpak install --system --noninteractive flathub io.github.kolunmi.Bazaar
 
 curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
 	--yes \
