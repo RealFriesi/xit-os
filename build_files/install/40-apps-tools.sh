@@ -37,6 +37,12 @@ curl --retry 3 -fsSL \
 	-o "${nautilus_extension_dir}/libnautilus_ovpn.so" \
 	https://github.com/RealFriesi/nautilus-ovpn/releases/latest/download/libnautilus_ovpn.so
 
+nautilus_locale_dir=/usr/share/locale/de/LC_MESSAGES
+mkdir -p "${nautilus_locale_dir}"
+curl --retry 3 -fsSL \
+	-o "${nautilus_locale_dir}/nautilus-ovpn.mo" \
+	https://github.com/RealFriesi/nautilus-ovpn/releases/latest/download/nautilus-ovpn.mo
+
 # only these apps ship in the image; the rest of preinstall.d is synced at boot
 flatpak install --system --noninteractive flathub io.github.kolunmi.Bazaar
 
