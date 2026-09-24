@@ -4,7 +4,7 @@ COPY build_files /
 COPY system_files /system_files
 
 # Base Image
-FROM quay.io/fedora/fedora-bootc:45
+FROM quay.io/fedora/fedora-bootc:latest
 
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the scripts in
