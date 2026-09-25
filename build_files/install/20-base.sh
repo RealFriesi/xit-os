@@ -8,6 +8,11 @@ dnf5 install -y \
 	distrobox \
 	fuse \
 	fuse-libs \
+	uresourced \
+	dosfstools \
+	exfatprogs \
+	ntfs-3g \
+	ntfsprogs \
 	bluez \
 	btrfs-progs \
 	cryptsetup \
@@ -15,7 +20,6 @@ dnf5 install -y \
 	fwupd \
 	fprintd \
 	fprintd-pam \
-	glibc-all-langpacks \
 	langpacks-de \
 	langpacks-en \
 	openvpn \
@@ -33,7 +37,9 @@ dnf5 install -y \
 	pipewire \
 	pipewire-pulseaudio \
 	polkit \
-	power-profiles-daemon \
+	lm_sensors \
+	tuned \
+	tuned-ppd \
 	udisks2 \
 	wireplumber \
 	xdg-user-dirs
