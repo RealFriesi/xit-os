@@ -26,6 +26,14 @@ dnf5 install -y \
 	cryptsetup \
 	langpacks-de \
 	langpacks-en \
+	wpa_supplicant \
+	iwlwifi-mvm-firmware \
+	realmd \
+	sssd \
+	oddjob \
+	oddjob-mkhomedir \
+	adcli \
+	samba-common-tools \
 	plymouth \
 	plymouth-theme-charge \
 	gnome-keyring \
