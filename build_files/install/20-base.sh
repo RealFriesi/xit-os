@@ -27,7 +27,7 @@ dnf5 install -y \
 	langpacks-de \
 	langpacks-en \
 	plymouth \
-	plymouth-plugin-script \
+	plymouth-theme-charge \
 	gnome-keyring \
 	gnome-keyring-pam
 
