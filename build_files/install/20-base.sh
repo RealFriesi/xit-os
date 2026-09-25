@@ -3,6 +3,8 @@
 set -euo pipefail
 
 dnf5 install -y \
+	--enablerepo=copr:copr.fedorainfracloud.org:ublue-os:packages \
+	ublue-os-media-automount-udev \
 	plymouth \
 	plymouth-theme-charge \
 	distrobox \

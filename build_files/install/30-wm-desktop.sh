@@ -31,7 +31,6 @@ dnf5 install -y \
 	qt6-qtbase-gui \
 	qt6-qtdeclarative \
 	qt6-qtwayland-adwaita-decoration \
-	ublue-os-media-automount-udev \
 	gnome-keyring \
 	gnome-keyring-pam \
 	xdg-utils \
