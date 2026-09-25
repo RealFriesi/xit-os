@@ -31,12 +31,7 @@ dnf5 install -y \
 	qt6-qtbase-gui \
 	qt6-qtdeclarative \
 	qt6-qtwayland-adwaita-decoration \
-	gnome-keyring \
-	gnome-keyring-pam \
-	xdg-utils \
-	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
-	xdg-desktop-portal-gtk
+	xdg-utils
 
 systemctl enable gdm.service
 systemctl set-default graphical.target

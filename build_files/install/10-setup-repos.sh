@@ -25,3 +25,4 @@ gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
 
 flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+systemctl enable xit-os-flatpak-preinstall-sync.service

@@ -4,58 +4,35 @@ set -euo pipefail
 
 dnf5 install -y \
 	--enablerepo=copr:copr.fedorainfracloud.org:ublue-os:packages \
+	@multimedia \
 	ublue-os-media-automount-udev \
-	plymouth \
-	plymouth-theme-charge \
-	distrobox \
-	fuse \
-	fuse-libs \
+	ublue-os-udev-rules \
+	lm_sensors \
+	tuned \
+	tuned-ppd \
 	uresourced \
 	dosfstools \
 	exfatprogs \
 	ntfs-3g \
 	ntfsprogs \
-	bluez \
+	amd-ucode-firmware \
+	microcode_ctl \
+	distrobox \
+	fish \
+	fuse \
+	fuse-libs \
 	btrfs-progs \
 	cryptsetup \
-	dbus-daemon \
-	fwupd \
-	fprintd \
-	fprintd-pam \
 	langpacks-de \
 	langpacks-en \
-	openvpn \
-	NetworkManager \
-	NetworkManager-openvpn \
-	NetworkManager-wifi \
-	realmd \
-	sssd \
-	oddjob \
-	oddjob-mkhomedir \
-	adcli \
-	samba-common-tools \
-	wpa_supplicant \
-	iwlwifi-mvm-firmware \
-	pipewire \
-	pipewire-pulseaudio \
-	polkit \
-	lm_sensors \
-	tuned \
-	tuned-ppd \
-	udisks2 \
-	wireplumber \
-	xdg-user-dirs
+	plymouth \
+	plymouth-plugin-script \
+	gnome-keyring \
+	gnome-keyring-pam
 
 plymouth-set-default-theme -R charge
-systemctl enable podman.socket
 
-## Font
-font_dir=/usr/share/fonts/FiraCode
-font_archive=/tmp/FiraCode.zip
-mkdir -p "${font_dir}"
-curl --retry 3 -fsSL \
-	-o "${font_archive}" \
-	https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip
-unzip -q "${font_archive}" -d "${font_dir}"
-rm -f "${font_archive}"
-fc-cache -f "${font_dir}"
+systemctl enable podman.socket
+systemctl enable ublue-os-media-automount.service
+systemctl enable tuned.service
+systemctl enable tuned-ppd.service
