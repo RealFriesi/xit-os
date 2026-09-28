@@ -6,8 +6,6 @@ dnf5 install -y \
 	--enablerepo=copr:copr.fedorainfracloud.org:ublue-os:packages \
 	--skip-unavailable \
 	@multimedia \
-	intel-media-driver \
-	libavcodec-freeworld \
 	ublue-os-media-automount-udev \
 	ublue-os-udev-rules \
 	lm_sensors \
