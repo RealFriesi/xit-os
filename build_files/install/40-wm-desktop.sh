@@ -24,7 +24,6 @@ dnf5 install -y \
 	--exclude=snapshot \
 	--exclude=loupe \
 	--exclude=papers \
-	--exclude=ptyxis \
 	--exclude=decibels \
 	@gnome-desktop \
 	qt6-qtbase \

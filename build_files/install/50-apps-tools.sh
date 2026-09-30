@@ -12,18 +12,6 @@ dnf install -y \
 	fish \
 	ghostty
 
-# Install Ghostty Shaders
-shader_dir=/usr/share/xit-os/ghostty/shaders
-shader_archive=/tmp/ghostty-cursor-shaders.tar.gz
-mkdir -p "${shader_dir}"
-curl --retry 3 -fsSL \
-	-o "${shader_archive}" \
-	https://github.com/sahaj-b/ghostty-cursor-shaders/archive/refs/heads/main.tar.gz
-tar -xzf "${shader_archive}" \
-	-C "${shader_dir}" \
-	--strip-components=1 \
-	--wildcards '*.glsl'
-
 # Install Nautilus OpenVPN Extension
 nautilus_extension_dir=/usr/lib64/nautilus/extensions-4
 mkdir -p "${nautilus_extension_dir}"
