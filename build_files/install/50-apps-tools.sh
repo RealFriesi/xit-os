@@ -3,7 +3,7 @@
 set -euo pipefail
 
 dnf install -y \
-    --skip-unavailable \
+	--skip-unavailable \
 	--enablerepo=terra \
 	--enablerepo=anydesk \
 	anydesk \
