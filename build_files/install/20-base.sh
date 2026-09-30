@@ -46,3 +46,4 @@ systemctl enable podman.socket
 systemctl enable ublue-os-media-automount.service
 systemctl enable tuned.service
 systemctl enable tuned-ppd.service
+systemctl --global mask gcr-ssh-agent.socket gcr-ssh-agent.service
