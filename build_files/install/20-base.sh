@@ -40,7 +40,7 @@ dnf5 install -y \
 	gnome-keyring \
 	gnome-keyring-pam
 
-sed -i '/^\[Desktop Entry\]/a Hidden=true' /etc/xdg/autostart/gnome-keyring-ssh.desktop
+rm -f /etc/xdg/autostart/gnome-keyring-ssh.desktop
 
 plymouth-set-default-theme -R charge
 
