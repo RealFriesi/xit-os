@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -eu
+
+[ -n "${HOME:-}" ] || exit 0
+command -v flatpak >/dev/null 2>&1 || exit 0
+
+flatpak info --system com.bitwarden.desktop >/dev/null 2>&1 ||
+	flatpak info --user com.bitwarden.desktop >/dev/null 2>&1 || exit 0
+
+printf 'SSH_AUTH_SOCK=%s/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock\n' "${HOME%/}"
