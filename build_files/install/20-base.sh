@@ -40,8 +40,6 @@ dnf5 install -y \
 	gnome-keyring \
 	gnome-keyring-pam
 
-rm -f /etc/xdg/autostart/gnome-keyring-ssh.desktop
-
 plymouth-set-default-theme -R charge
 
 systemctl enable podman.socket
