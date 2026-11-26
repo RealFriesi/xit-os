@@ -1,32 +1,8 @@
-[Flatpak Preinstall io.github.kolunmi.Bazaar]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.mozilla.firefox]
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall org.gnome.baobab]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall org.gnome.Calculator]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall org.gnome.Loupe]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall org.gnome.Papers]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall com.usebottles.bottles]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall org.gnome.TextEditor]
 Branch=stable
 IsRuntime=false
 
@@ -42,10 +18,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall app.drey.KeyRack]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall com.ranfdev.DistroShelf]
 Branch=stable
 IsRuntime=false
@@ -54,14 +26,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall com.mattjakeman.ExtensionManager]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.zulip.Zulip]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall io.missioncenter.MissionCenter]
 Branch=stable
 IsRuntime=false

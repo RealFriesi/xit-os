@@ -7,23 +7,10 @@ dnf install -y \
 	--enablerepo=terra \
 	--enablerepo=anydesk \
 	anydesk \
-	gnome-disk-utility \
-	unzip \
 	fish \
-	ghostty
-
-# Install Nautilus OpenVPN Extension
-nautilus_extension_dir=/usr/lib64/nautilus/extensions-4
-mkdir -p "${nautilus_extension_dir}"
-curl --retry 3 -fsSL \
-	-o "${nautilus_extension_dir}/libnautilus_ovpn.so" \
-	https://github.com/RealFriesi/nautilus-ovpn/releases/latest/download/libnautilus_ovpn.so
-
-nautilus_locale_dir=/usr/share/locale/de/LC_MESSAGES
-mkdir -p "${nautilus_locale_dir}"
-curl --retry 3 -fsSL \
-	-o "${nautilus_locale_dir}/nautilus-ovpn.mo" \
-	https://github.com/RealFriesi/nautilus-ovpn/releases/latest/download/nautilus-ovpn.mo
+	fuse-libs \
+	ghostty \
+	jq
 
 # Install Starship
 curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
@@ -32,3 +19,18 @@ curl --retry 3 -fsSL https://starship.rs/install.sh | sh -s -- \
 
 useradd -D --shell /usr/bin/fish
 usermod --shell /usr/bin/fish root
+
+# Install ActivityWatch
+AW_TMP_DIR="$(mktemp -d)"
+trap 'rm -rf "$AW_TMP_DIR"' EXIT
+
+curl --retry 3 -fsSL https://api.github.com/repos/ActivityWatch/activitywatch/releases/latest \
+	-o "${AW_TMP_DIR}/release.json"
+AW_RELEASE_ASSET="$(jq -er 'first(.assets[] | select(.name | test("^activitywatch-tauri-v[0-9].*-linux-x86_64\\.AppImage$"))) | [.browser_download_url, .digest] | @tsv' "${AW_TMP_DIR}/release.json")"
+IFS=$'\t' read -r AW_DOWNLOAD_URL AW_DIGEST <<<"$AW_RELEASE_ASSET"
+AW_SHA256="${AW_DIGEST#sha256:}"
+
+curl --retry 3 -fsSL "$AW_DOWNLOAD_URL" \
+	-o "${AW_TMP_DIR}/aw-tauri.AppImage"
+printf '%s  %s\n' "$AW_SHA256" "${AW_TMP_DIR}/aw-tauri.AppImage" | sha256sum --check --status
+install -D -m 0755 "${AW_TMP_DIR}/aw-tauri.AppImage" /opt/activitywatch/aw-tauri.AppImage
