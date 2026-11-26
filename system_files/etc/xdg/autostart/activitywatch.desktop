@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=ActivityWatch
+Exec=/opt/activitywatch/aw-tauri.AppImage
+Terminal=false
+StartupNotify=false
