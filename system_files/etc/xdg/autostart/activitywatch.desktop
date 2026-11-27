@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
 Name=ActivityWatch
-Exec=/opt/activitywatch/aw-tauri.AppImage
+Exec=/usr/local/bin/aw-tauri.AppImage
 Terminal=false
 StartupNotify=false

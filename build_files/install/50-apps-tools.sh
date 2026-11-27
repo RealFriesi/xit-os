@@ -33,4 +33,4 @@ AW_SHA256="${AW_DIGEST#sha256:}"
 curl --retry 3 -fsSL "$AW_DOWNLOAD_URL" \
 	-o "${AW_TMP_DIR}/aw-tauri.AppImage"
 printf '%s  %s\n' "$AW_SHA256" "${AW_TMP_DIR}/aw-tauri.AppImage" | sha256sum --check --status
-install -D -m 0755 "${AW_TMP_DIR}/aw-tauri.AppImage" /opt/activitywatch/aw-tauri.AppImage
+install -D -m 0755 "${AW_TMP_DIR}/aw-tauri.AppImage" /usr/local/bin/aw-tauri.AppImage
